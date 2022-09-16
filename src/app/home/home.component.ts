@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Routes } from '@angular/router';
+import { SharedService } from '../app.service';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 stepper: string|any[]|null|undefined;
 
-  constructor() { }
+  constructor(private sharedService: SharedService) { }
 
   ngOnInit(): void {
   }
