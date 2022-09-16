@@ -1,28 +1,30 @@
 <div class="container my-4">
-    <h2 class="text-center">Thank You For Registering</h2>
+    <h2 class="text-center">Thank You For Registering <span class="bold">{{datas.personalData.firstName}}</span> </h2>
     <div class="card my-3 text-center">
         <div class="card-header">Personal Details</div>
         <div class="card-body">
-            <div>First Name: {{datas.personalData.firstName}}</div>
-            <div>Last Name: {{datas.personalData.lastName}}</div>
-            <div>Email: {{datas.personalData.email}}</div>
-            <div>Phone: {{datas.personalData.phone}}</div>
+            <div><span>First Name:</span> {{datas.personalData.firstName}}</div>
+            <div><span>Last Name:</span> {{datas.personalData.lastName}}</div>
+            <div><span>Email:</span> {{datas.personalData.email}}</div>
+            <div><span>Phone:</span> {{datas.personalData.phone}}</div>
         </div>
     </div>
     <div class="card my-3 text-center">
         <div class="card-header">Company Details</div>
         <div class="card-body">
-            <div>Company Name: {{datas.companyData.companyName}}</div>
-            <div>Designation: {{datas.companyData.designation}}</div>
-            <div>Location: {{datas.companyData.location}}</div>
+            <div><span>Company Name:</span> {{datas.companyData.companyName}}</div>
+            <div><span>Designation:</span> {{datas.companyData.designation}}</div>
+            <div><span>Location:</span> {{datas.companyData.location}}</div>
         </div>
     </div>
     <div class="card my-3 text-center">
         <div class="card-header">Address</div>
         <div class="card-body">
-            <div>House Name/Number: {{datas.addressData.house}}</div>
-            <div>Address: {{datas.addressData.address}}</div>
-            <div>Nationality: {{datas.addressData.nationality}}</div>
+            <div><span>House Name/Number:</span> {{datas.addressData.house}}</div>
+            <div><span>Address:</span> {{datas.addressData.address}}</div>
+            <div><span>Nationality:</span> {{datas.addressData.nationality}}</div>
         </div>
     </div>
+
+    <button class="btn btn-success my-2 text-center" routerLink="/">Go to Home Page</button>
 </div>

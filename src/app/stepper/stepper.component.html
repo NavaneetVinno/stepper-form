@@ -1,7 +1,12 @@
 <div class="container">
+  <div class="my-3 text-center steps">
+    <a class="step" (click)="openTab(1)"><span class="ball">1</span><span>Personal details</span></a>
+    <a class="step" (click)="openTab(2)"><span class="ball">2</span><span>Company details</span></a>
+    <a class="step" (click)="openTab(3)"><span class="ball">3</span><span>Address</span></a>
+  </div>
   <form [formGroup]="stepperForm" (ngSubmit)="submit(stepperForm.value)">
     <div class="tab" *ngIf="steps == 1" formGroupName="personalData">
-      <h2>Personal Details</h2>
+      <h2 class="text-center">Personal Details</h2>
       <div class="form-group">
         <label>First Name</label>
         <input
@@ -73,7 +78,7 @@
     </div>
 
     <div class="tab" *ngIf="steps == 2" formGroupName="companyData">
-      <h2>Company Details</h2>
+      <h2 class="text-center">Company Details</h2>
       <div class="form-group">
         <label>Company Name</label>
         <input
@@ -128,7 +133,7 @@
     </div>
 
     <div class="tab" *ngIf="steps == 3" formGroupName="addressData">
-      <h2>Address</h2>
+      <h2 class="text-center">Address</h2>
       <div class="form-group">
         <label>House name/number</label>
         <input

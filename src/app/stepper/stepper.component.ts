@@ -37,14 +37,17 @@ export class StepperComponent implements OnInit {
         'nationality': new FormControl(null, Validators.required)
       })
     })
+    this.stepIndicator(this.steps-1)
   }
 
   prevBtn(){
     this.steps = this.steps - 1;
+    this.stepIndicator(this.steps-1);
   }
 
   nextBtn(){
     this.steps = this.steps + 1;
+    this.stepIndicator(this.steps-1);
   }
 
   submit(data: any){
@@ -56,5 +59,22 @@ export class StepperComponent implements OnInit {
       alert("Form not filled");
     }
   }
+
+  stepIndicator(n:any){
+    const x = document.querySelectorAll('.step');
+    console.log(x);
+    for(let i = 0; i < x.length; i++){
+      x[i].className = x[i].className.replace(" active", "");
+    }
+    x[n].className += " active";
+  }
+
+  openTab(n:number){
+    console.log(n);
+    this.steps = n;
+    this.stepIndicator(n-1);
+  }
+
+  
   
 }
