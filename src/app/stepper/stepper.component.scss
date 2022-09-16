@@ -1,0 +1,44 @@
+form {
+  justify-content: center;
+}
+
+.tab {
+  //   display: none;
+  margin-top: 50px;
+  margin-left: 30%;
+  .form-group {
+    width: 50%;
+  }
+}
+
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+.form-group {
+  span {
+    color: red;
+    font-size: 14px;
+  }
+}
+
+/* Mark the active step: */
+.step.active {
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #04aa6d;
+}
