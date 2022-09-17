@@ -24,13 +24,30 @@ form {
 .steps {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   color: #333;
   font-weight: 200;
   font-size: 16px;
+  .connect-line {
+    height: 3px;
+    width: 110px;
+    // float: left;
+    // clear: none;
+    background-color: #5552;
+  }
+  .connect-line.active{
+    background-color: #3f51b5;
+  }
+  a.disabled {
+    color: gray;
+    cursor: not-allowed;
+    text-decoration: underline;
+  }
 
   .step {
     padding: 10px;
     align-items: baseline;
+    border: none;
     cursor: pointer;
     color: #000;
     span {
@@ -65,12 +82,12 @@ input.ng-invalid.ng-touched {
 
 /* Mark the active step: */
 .step.active {
-      color: #3f51b5 !important;
-      font-weight: 600;
-      .ball{
-        color: #9a05fd !important;
-        font-weight: 800;
-      }
+  color: #3f51b5 !important;
+  font-weight: 600;
+  .ball {
+    color: #9a05fd !important;
+    font-weight: 800;
+  }
   // display: inline-block;
 }
 

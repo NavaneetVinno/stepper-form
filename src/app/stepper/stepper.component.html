@@ -1,10 +1,12 @@
 <div class="container">
-  <div class="my-3 text-center steps">
-    <a class="step" (click)="openTab(1)"><span class="ball">1</span><span>Personal details</span></a>
-    <a class="step" (click)="openTab(2)"><span class="ball">2</span><span>Company details</span></a>
-    <a class="step" (click)="openTab(3)"><span class="ball">3</span><span>Address</span></a>
-  </div>
   <form [formGroup]="stepperForm" (ngSubmit)="submit(stepperForm.value)">
+    <div class="my-3 text-center steps">
+      <a class="step" (click)="openTab(1)"><span class="ball">1</span><span>Personal details</span></a>
+      <span class="connect-line line--1"></span>
+      <a  class="step" (click)="openTab(2)" [class.disabled]="stepperForm.get('personalData')?.invalid"><span class="ball">2</span><span>Company details</span></a>
+      <span class="connect-line line--2"></span>
+      <a class="step" (click)="openTab(3)" [class.disabled]="stepperForm.get('companyData')?.invalid"><span class="ball">3</span><span>Address</span></a>
+    </div>
     <div class="tab" *ngIf="steps == 1" formGroupName="personalData">
       <h2 class="text-center">Personal Details</h2>
       <div class="form-group">
@@ -204,6 +206,7 @@
           id="nextBtn"
           *ngIf="steps != 3"
           (click)="nextBtn()"
+          [disabled]="stepperForm.get('personalData')?.invalid"
         >
           Next
         </button>
@@ -211,49 +214,11 @@
           type="submit"
           class="btn btn-primary"
           *ngIf="steps == 3"
-          [disabled]="stepperForm.invalid"
+          [disabled]="stepperForm.invalid || stepperForm.get('companyData')?.invalid"
         >
           Submit
         </button>
       </div>
     </div>
   </form>
-</div>
-
-<!-- Modal -->
-<div
-  class="modal fade"
-  id="exampleModal"
-  tabindex="-1"
-  aria-labelledby="exampleModalLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="modal-body">
-        <div>
-          <h3>Personal Details</h3>
-          <div class="personal-firstName"></div>
-          <div class="personal-lastName"></div>
-          <div class="personal-email"></div>
-          <div class="personal-phone"></div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          Close
-        </button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
 </div>

@@ -14,6 +14,18 @@ export class SharedService {
     this.formData.next(data)
   }
 
+  setStore(key:string,value:any){
+    console.log(key, value);
+    localStorage.setItem(key,JSON.stringify(value));
+  }
+
+  getStore(key:any):any{
+    let keyData:any  = " ";
+    keyData = localStorage.getItem(key)
+    console.log(keyData);
+    return JSON.parse(keyData)
+  }
+
   getDatas(){
     return this.formData.asObservable()
   }

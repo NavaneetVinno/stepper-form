@@ -8,11 +8,37 @@ import { SharedService } from '../app.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-stepper: string|any[]|null|undefined;
+  stepper!: any[];
+  boxArray !: any[];
 
   constructor(private sharedService: SharedService) { }
 
   ngOnInit(): void {
+    read()
+    const arr = []
+    const data = this.sharedService.getStore("datas");
+    console.log(data);
+    arr.push(data);
+    this.stepper = arr
+    save(arr)
   }
 
+  fetchData(){
+    const data = read();
+
+    this.boxArray = data;
+    console.log(data);
+  }
+
+}
+
+function read(){
+  const json: any = localStorage.getItem("data+id");
+  console.log(json);
+  return JSON.parse(json)
+}
+
+function save(data:any){
+  localStorage.setItem("data+id", JSON.stringify(data));
+  
 }
